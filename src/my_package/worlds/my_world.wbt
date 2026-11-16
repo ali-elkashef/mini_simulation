@@ -1,0 +1,82 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/husarion/rosbot/protos/Rosbot.proto"
+
+WorldInfo { }
+Viewpoint {
+  orientation -0.33 -0.0987 0.938 3.686
+  position 3 2 3
+  follow "rosbot"
+}
+TexturedBackground { }
+TexturedBackgroundLight { }
+
+RectangleArena {
+  floorSize 6 6
+  wallHeight 0.3
+}
+
+# Obstacle 1
+Solid {
+  translation 1.0 0.5 0.15
+  children [
+    Shape {
+      appearance PBRAppearance { baseColor 1 0 0 roughness 1 metalness 0 }
+      geometry Box { size 0.3 0.3 0.3 }
+    }
+  ]
+  name "obstacle1"
+  boundingObject Box { size 0.3 0.3 0.3 }
+  physics Physics { mass 1.0 }
+}
+
+# Obstacle 2
+Solid {
+  translation -0.5 1.0 0.15
+  children [
+    Shape {
+      appearance PBRAppearance { baseColor 0 0 1 roughness 1 metalness 0 }
+      geometry Box { size 0.3 0.3 0.3 }
+    }
+  ]
+  name "obstacle2"
+  boundingObject Box { size 0.3 0.3 0.3 }
+  physics Physics { mass 1.0 }
+}
+
+# Obstacle 3
+Solid {
+  translation 0.5 -1.0 0.15
+  children [
+    Shape {
+      appearance PBRAppearance { baseColor 0 1 0 roughness 1 metalness 0 }
+      geometry Box { size 0.3 0.3 0.3 }
+    }
+  ]
+  name "obstacle3"
+  boundingObject Box { size 0.3 0.3 0.3 }
+  physics Physics { mass 1.0 }
+}
+# Obstacle 4 
+
+Solid {
+  translation 2.3 2.3 0.15
+  children [
+    Shape {
+      appearance PBRAppearance { baseColor 0 0 0 roughness 1 metalness 0 }
+      geometry Box { size 0.3 0.3 0.3 }
+    }
+  ]
+  name "obstacle4"
+  boundingObject Box { size 0.3 0.3 0.3 }
+  physics Physics { mass 1.0 }
+}
+
+
+Rosbot {
+  name "rosbot"
+  controller "<extern>"
+}

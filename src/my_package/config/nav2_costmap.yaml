@@ -1,0 +1,22 @@
+local_costmap:
+  ros__parameters:
+    update_frequency: 5.0
+    publish_frequency: 2.0
+    global_frame: odom
+    robot_base_frame: base_link
+    rolling_window: true
+    width: 5
+    height: 5
+    resolution: 0.05
+
+    plugins: ["merged_layer","inflation_layer"]
+
+    merged_layer:
+      plugin: "test_c/GridLayer"
+      enabled: true
+      grid_topic: "/merged_map"
+    inflation_layer:
+      plugin: "nav2_costmap_2d::InflationLayer"
+      enabled: true
+      inflation_radius: 0.1
+      cost_scaling_factor: 2.0
